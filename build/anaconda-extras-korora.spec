@@ -8,6 +8,7 @@ License:        GPLv3
 URL:            https://github.com/kororaproject/kp-anaconda-extras-korora.spec
 Source0:        %{name}-%{version}.tar.gz
 
+BuildRequires:  python3-devel
 Requires:       anaconda
 
 %description
@@ -19,10 +20,9 @@ Requires:       anaconda
 
 
 %install
-mkdir -p %{buildroot}%{_bindir}
-mkdir -p %{buildroot}%{python3_sitearch}/pyanaconda/installclasses/
+mkdir -p %{buildroot}%{python3_sitelib}/pyanaconda/installclasses/
 
-install -m 0644 korora.py %{buildroot}%{python3_sitearch}/pyanaconda/installclasses/
+install -m 0644 korora.py %{buildroot}%{python3_sitelib}/pyanaconda/installclasses/
 
 
 %clean
@@ -30,7 +30,7 @@ rm -rf %{buildroot}
 
 
 %files
-%{python3_sitearch}/pyanaconda/installclasses/
+%{python3_sitelib}/pyanaconda/installclasses/korora.py
 
 
 %changelog
